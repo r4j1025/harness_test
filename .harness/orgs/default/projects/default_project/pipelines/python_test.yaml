@@ -37,3 +37,5 @@ pipeline:
                   spec:
                     shell: Bash
                     command: python --version
+        delegateSelectors:
+          - docker-delegate
