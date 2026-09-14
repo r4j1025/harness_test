@@ -36,6 +36,6 @@ pipeline:
                   identifier: Run_1
                   spec:
                     shell: Bash
-                    command: python --version
+                    command: python3 --version
         delegateSelectors:
           - docker-delegate
