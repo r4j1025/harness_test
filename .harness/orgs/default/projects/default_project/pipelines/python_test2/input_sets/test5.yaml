@@ -1,0 +1,21 @@
+inputSet:
+  name: test5
+  identifier: test5
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: python_test2
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+eventPayload.branch>
+    variables:
+      - name: A
+        type: String
+        value: <+eventPayload.A>
+      - name: B
+        type: String
+        value: <+eventPayload.B>
