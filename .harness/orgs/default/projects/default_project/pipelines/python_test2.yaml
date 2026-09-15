@@ -1,0 +1,59 @@
+pipeline:
+  name: python_test2
+  identifier: python_test2
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: github
+        build: <+input>
+  stages:
+    - stage:
+        name: stage1
+        identifier: stage1
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: true
+          buildIntelligence:
+            enabled: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Docker
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    shell: Python
+                    command: |-
+                      #!/usr/bin/env python3
+                      import os
+                       
+                      A = float(os.getenv("A", "0"))
+                      B = float(os.getenv("B", "0"))
+                      result = A + B
+                      print("A value is ", A)
+                      print("B value is ", B)
+                      print(f"Result= {result}")
+        variables:
+          - name: A
+            type: String
+            description: ""
+            required: true
+            value: <+input>
+          - name: B
+            type: String
+            description: ""
+            required: true
+            value: <+input>
