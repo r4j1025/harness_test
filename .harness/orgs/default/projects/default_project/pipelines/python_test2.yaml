@@ -35,25 +35,31 @@ pipeline:
                   name: Run_1
                   identifier: Run_1
                   spec:
-                    shell: Python
+                    shell: Bash
                     command: |-
-                      #!/usr/bin/env python3
+                      python3 -c '
                       import os
-                       
+
                       A = float(os.getenv("A", "0"))
                       B = float(os.getenv("B", "0"))
+
                       result = A + B
+
                       print("A value is ", A)
                       print("B value is ", B)
                       print(f"Result= {result}")
-        variables:
-          - name: A
-            type: String
-            description: ""
-            required: true
-            value: <+input>
-          - name: B
-            type: String
-            description: ""
-            required: true
-            value: <+input>
+                      '
+                    envVariables:
+                      A: <+pipeline.variables.A>
+                      B: <+pipeline.variables.B>
+  variables:
+    - name: A
+      type: String
+      description: ""
+      required: false
+      value: <+input>
+    - name: B
+      type: String
+      description: ""
+      required: false
+      value: <+input>
