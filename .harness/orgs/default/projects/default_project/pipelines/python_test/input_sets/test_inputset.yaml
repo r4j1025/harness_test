@@ -1,0 +1,14 @@
+inputSet:
+  pipeline:
+    identifier: python_test
+    properties:
+      ci:
+        codebase:
+          build:
+            spec:
+              branch: main
+            type: branch
+  name: test_inputset
+  identifier: test_inputset
+  orgIdentifier: default
+  projectIdentifier: default_project
