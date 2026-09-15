@@ -1,0 +1,22 @@
+inputSet:
+  name: test_inputset1
+  identifier: test_inputset1
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: python_test2
+    properties:
+      ci:
+        codebase:
+          build: <+input>
+    stages:
+      - stage:
+          identifier: stage1
+          type: CI
+          variables:
+            - name: A
+              type: String
+              value: <+input>
+            - name: B
+              type: String
+              value: <+input>
