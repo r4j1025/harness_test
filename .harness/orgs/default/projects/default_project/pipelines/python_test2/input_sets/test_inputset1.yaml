@@ -1,5 +1,6 @@
 inputSet:
   name: test_inputset1
+  tags: {}
   identifier: test_inputset1
   orgIdentifier: default
   projectIdentifier: default_project
@@ -16,7 +17,7 @@ inputSet:
           variables:
             - name: A
               type: String
-              value: <+input>
+              value: <+eventPayload.A>
             - name: B
               type: String
-              value: <+input>
+              value: <+eventPayload.B>
