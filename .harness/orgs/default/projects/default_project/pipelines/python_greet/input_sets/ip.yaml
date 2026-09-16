@@ -1,0 +1,15 @@
+inputSet:
+  name: ip
+  identifier: ip
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: python_greet
+    properties:
+      ci:
+        codebase:
+          build: <+input>
+    variables:
+      - name: name
+        type: String
+        value: <+eventPayload.name>
